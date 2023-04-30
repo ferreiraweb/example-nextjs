@@ -1,0 +1,22 @@
+{
+    "pessoas": [
+        {
+            "id": 1,
+            "nome": "Alexandre Ferreira",
+            "email": "alexandreferreira.br@gmail.com",
+            "nascimento": "1971-09-10"
+        },
+        {
+            "id": 2,
+            "nome": "Francilene Ferreira",
+            "email": "lenefer.br@gmail.com",
+            "nascimento": "1973-04-16"
+        },
+        {
+            "id": 3,
+            "nome": "Ester Ferreira",
+            "email": "ester.br@gmail.com",
+            "nascimento": "1997-05-28"
+        }
+    ]
+}
