@@ -1,6 +1,6 @@
 import { api } from "@/services/axios";
 import { PessoasContainer } from "@/styles/Pessoas.style";
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 
 interface IPessoa {
   id: number;
@@ -13,7 +13,7 @@ interface IPessoaProps {
   pessoas: IPessoa[];
 }
 
-export default function PessoasSSR({ pessoas }: IPessoaProps) {
+export default function PessoasISR({ pessoas }: IPessoaProps) {
   return (
     <PessoasContainer>
       <h2>Pessoas</h2>
@@ -30,12 +30,13 @@ export default function PessoasSSR({ pessoas }: IPessoaProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const response = await api.get<IPessoa[]>("pessoas");
 
   return {
     props: {
       pessoas: response.data,
     },
+    revalidate: 20,
   };
 };
